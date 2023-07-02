@@ -1,6 +1,9 @@
 entry.sublime-project
 entry.sublime-workspace
+package-lock.json
+*.sqlite3
 
 env/
 __pycache__/
 migrations/
+node_modules/

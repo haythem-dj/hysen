@@ -1,0 +1,6 @@
+entry.sublime-project
+entry.sublime-workspace
+
+env/
+__pycache__/
+migrations/

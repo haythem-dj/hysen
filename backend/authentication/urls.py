@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import ProfileView
+from .views import login, register, validate_token
 
 urlpatterns = [
-	path("", ProfileView.as_view())
+	path("login", login, name="login"),
+	path("register", register, name="register"),
+	path("validate_token", validate_token, name="validate_token")
 ]

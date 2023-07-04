@@ -1,0 +1,38 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-wrapper form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #555500;
+}
+
+.login-wrapper form input {
+    font-size: 18px;
+    padding: 5px 10px;
+    color: #000000;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 1px #555500 solid;
+}
+
+.login-wrapper form button {
+    font-size: 18px;
+    padding: 5px 10px;
+    color: white;
+    background-color: #555500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-wrapper form button:focus,
+.login-wrapper form button:hover {
+    background-color: #444400;
+}

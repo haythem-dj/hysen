@@ -6,9 +6,9 @@ const Logout = () => {
 	window.location.replace("/login")
 
 	return (
-		<div>
-			
-		</div>
+		<>
+			<h1>Login out...</h1>
+		</>
 	)
 }
 

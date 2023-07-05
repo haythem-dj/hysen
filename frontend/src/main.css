@@ -1,0 +1,13 @@
+:root {
+	--primary: #e36414;
+	--primary-focus: #fb8b24;
+	--secondary: #9a031e;
+
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}

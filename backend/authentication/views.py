@@ -28,7 +28,7 @@ def register(request):
 		return Response({"token": token}, status=201)
 		
 	else:
-		return Response(serializer.errors)
+		return Response(serializer.errors, status=400)
 
 @api_view(["POST"])
 def login(request):

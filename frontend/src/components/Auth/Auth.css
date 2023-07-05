@@ -5,11 +5,20 @@
     padding: 20px;
 }
 
+.login-wrapper .error {
+    color: #550000;
+    background: #ff000055;
+    padding: 15px 50px;
+    margin-bottom: 15px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+}
+
 .login-wrapper form {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 1px solid #555500;
+    border: 1px solid var(--primary);
 }
 
 .login-wrapper form input {
@@ -19,14 +28,14 @@
     margin-bottom: 10px;
     outline: none;
     border: none;
-    border-bottom: 1px #555500 solid;
+    border-bottom: 1px var(--primary) solid;
 }
 
 .login-wrapper form button {
     font-size: 18px;
     padding: 5px 10px;
     color: white;
-    background-color: #555500;
+    background-color: var(--primary);
     border: none;
     outline: none;
     cursor: pointer;
@@ -34,5 +43,5 @@
 
 .login-wrapper form button:focus,
 .login-wrapper form button:hover {
-    background-color: #444400;
+    background-color: var(--primary-focus);
 }

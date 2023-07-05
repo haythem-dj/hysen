@@ -2,8 +2,12 @@ entry.sublime-project
 entry.sublime-workspace
 package-lock.json
 *.sqlite3
+colors.png
 
 env/
 __pycache__/
 migrations/
+templates/
+static/
+core/
 node_modules/

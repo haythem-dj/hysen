@@ -1,23 +1,22 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navigation from "../Navigation/Navigation"
+import GetToken from "../utils/GetToken"
 import "./Auth.css";
 
 const Login = () => {
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
+	const [error, setError] = useState({})
+	let arr = [];
+	let token = GetToken()
 
 	useEffect(() => {
-		let token;
-		let cookies = document.cookie.split(" ")
-		for(let cookie of cookies) {
-			if (cookie.split("=")[0] == "token")
-				token = cookie.split("=")[1]
-		}
-
 		axios.post("http://localhost:8000/api/authentication/validate_token", {token: token})
 		.then(res => {
-			if (res.data["validated"]) window.location.replace("/dashboard")
+			if (res.data["validated"] == true) window.location.replace("/dashboard")
 		})
+		.catch(err => {})
 	})
 
 	const handleUsernameChange = (e) => {
@@ -34,8 +33,11 @@ const Login = () => {
 			username: username,
 			password: password
 		})
-		.then(res => {document.cookie = "token="+res.data["token"]})
-		.catch(err => console.log(err))
+		.then(res => {
+			document.cookie = "token="+res.data["token"]+";SameSite=Lax"
+			window.location.replace("/dashboard")
+		})
+		.catch(err => setError(err.response.data))
 
 		setUsername("")
 		setPassword("")
@@ -43,7 +45,16 @@ const Login = () => {
 
 	return (
 		<>
+			<Navigation />
 			<div className="login-wrapper">
+				{Object.keys(error).forEach(key => {
+					arr.push(error[key])
+				})}
+
+				{arr.map((data, key) => {
+					return <p className="error" key={key}>{data}</p>
+				})}
+				
 				<form onSubmit={handleSubmit}>
 					<input type="text" value={username} placeholder="username or email" onChange={handleUsernameChange} required />
 					<input type="password" value={password} placeholder="password" onChange={handlePasswordChange} required />
